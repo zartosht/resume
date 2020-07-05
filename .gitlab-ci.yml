@@ -1,0 +1,9 @@
+deploy_staging:
+    type: deploy
+    environment:
+        name: staging
+        url: 206.189.48.29
+    script:
+      - ssh root@206.189.48.29 "cd /home/sites/zartoshtsepideman.com/www/public && git checkout master && git pull origin master && exit"
+    only:
+      - master

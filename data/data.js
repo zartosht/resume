@@ -54,7 +54,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        - Networking.<br/>
+        - Handle networking problems inside corporation.<br/>
         - Wordpress theme development.<br/>
         - Wordpress plugin development.<br/>
         `,
@@ -99,8 +99,8 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        - Build and develop Desktop application of Fidibo <br/>
-        - Maintenace of website with Phalcon<br/>
+        - Build and develop Fidibo\'s Desktop application <br/>
+        - Website maintenace with Phalcon <br/>
         `,
       from: 'Nov 2016',
       to: 'Mar 2017',
@@ -114,7 +114,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        - Build and develop PHP microservices for using with VAS <br/>
+        - Build and develop PHP microservices for using in VAS projects <br/>
         - Develop REST APIs for interacting with MCI and MTN <br/>
         - Develop backend of <a href="https://play.google.com/store/apps/details?id=com.mobilemediacomm.wallpapers">Everpics</a> (android app) <br/>
         - Develop lottery services for automation of charging services for Hamrah Aval <br/>
