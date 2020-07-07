@@ -149,16 +149,14 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        - Develop PHP microservices for Maskan bank project <br/>
-        - Works on blockchain based service for iran banking network <br/>
         - Collaborate with the development and implementation of the KYC (Know Your Customer) system in blockchain platform With HyperLedger<br/>
         - Implement the system using microservices architecture <br/>
-        - Developing project for Iranian centeral Bank in Khadamat Company <br/>
+        - Developing project for centeral Bank in ISC <br/>
         - Developing project for Maskan bank utilizing blockchain and NodeJS <br/>
         `,
       from: 'Jan 2020',
       to: 'Present',
-      stacks: 'PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
+      stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
     },
   ],
   education: [
@@ -171,21 +169,10 @@ const profile = {
       to: '2011'
     }
   ],
-  quote: 'It\'s better when everything goes according to plan!.'
+  quote: 'It\'s better when everything goes according to the plan!.'
 }
 
 const page = {
   language: 'english',
-  // ^ languages suported:
-  //  - english (default)
-  //  - spanish
-  //  - italian
-  //  - catalan
-  //  - french
   theme: 'nightsky'
-  // ^ themes suported:
-  //  - nightsky (default)
-  //  - sunset
-  //  - purpledream
-  //  - cutekitty
 }
