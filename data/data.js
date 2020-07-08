@@ -6,28 +6,39 @@ const profile = {
   description:
     "I'm a Backend developer working with PHP, NodeJS, Python and SQL, NoSQL Databases based on project needs.",
   bio:
-    `I've been programming for 7 years. I'm a Back-end  developer with experience creating, maintaining and implementing everything from databases to web pages.
+    `
+    I've been programming since 2012. First I started coding with python for learning security, running pentests and to create automated tests (because I love it when computers do jobs for me😁).
+    After python I learned ruby for using it with metasploit. Then I came across web development and just like everyone in this business, I started with PHP language and started coding in pure PHP (No OOP and anything! Dirty as hell!).
+    I found wordpress and very soon, get bored and started working with Laravel version 4. I created my first web application with Laravel, and stayed in PHP till now. Used Symfony, Phalcon, CodeIgniter and ... along my journey through PHP.
+    I developed my skills as programming languages developed. Learned NodeJS and started using AdonisJS because it was a great replica of the Laravel but in Javascript language.
+    Worked with Express, Next, Nest and developed many microservice and projects.
+    Personally I love developing smart applications, automated tasks, crawlers, fixing bugs and find a way to break the computer rules.
+    I'm a Back-end developer who has experience with creating, maintaining and implementing everything from databases to web pages.
     I nerd out when learning new programming languages functionality feels giddy when finding /destroying bugs.
     I like to face new challenges in every field in my career and I'm not afraid of them.
     `,
-  email: 'hi@zartosht.dev',
+  email: 'hi@Zartosht.dev',
   phone: '+98 912 77 18 19 4',
   location: 'Tehran, Iran',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'PHP',
     'Laravel',
-    'Code Igniter',
+    'Symfony',
+    'CodeIgniter',
     'Phalcon',
     'Wordpress',
     'Node.Js',
     'Express Js',
     'Nest',
+    'Next',
     'Adonis Js',
     'python',
     'Django',
     'Hyperledger Fabric',
     'Restful API',
+    'SOAP',
+    'Financial Projects',
     'MicroService',
     'Web Socket',
     'Docker',
@@ -54,12 +65,13 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Shukamo was a Sour Confectionary Creams that I worked in their main office as an IT manager who created and maintained their networks:
         - Handle networking problems inside corporation.<br/>
         - Wordpress theme development.<br/>
         - Wordpress plugin development.<br/>
         `,
       from: 'Jan 2013',
-      to: 'Jan 2014',
+      to: 'Jan 2015',
       stacks: 'PHP, Wordpress, Mysql'
     },
     {
@@ -69,11 +81,12 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Benis Rouesta was a company that worked alonged with Shukamo but in diffrent filed, "Construction". my job here was same as Shukamo but in diffrent office:
         - Wordpress theme development. <br/>
         - Wordpress plugin development. <br/>
         - Javascript development for knightlab. <br/>
         `,
-      from: 'Mar 2014',
+      from: 'Mar 2013',
       to: 'Dec 2015',
       stacks: 'PHP, Wordpress, Mysql, Javascript'
     },
@@ -84,6 +97,10 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Tav comoany was a business that worked mainly in SEO and web development field, It had some other businesses underneath:
+        - TavServer: Hosting
+        - TavAds: Advertisements
+        My main responsibilites there was:
         - Development of wordpress plugins <br/>
         - Development of wordpress themes <br/>
         - Development of PHP modules <br/>
@@ -99,13 +116,13 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Fidibo is a corporation in Digital books field and my job there was mainatining their website and create Front-end side of their desktop application:
         - Build and develop Fidibo\'s Desktop application <br/>
         - Website maintenace with Phalcon <br/>
         `,
       from: 'Nov 2016',
       to: 'Mar 2017',
-      stacks: 'C#, .Net, Php, Phalcon'
-
+      stacks: 'C#, .Net, Php, Phalcon, WPF, UWP'
     },
     {
       title: 'Backend Developer',
@@ -114,6 +131,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Media Hamrah was a agregator that worked with MCI and MTN in Value added services (VAS) field:
         - Build and develop PHP microservices for using in VAS projects <br/>
         - Develop REST APIs for interacting with MCI and MTN <br/>
         - Develop backend of <a href="https://play.google.com/store/apps/details?id=com.mobilemediacomm.wallpapers">Everpics</a> (android app) <br/>
@@ -130,10 +148,12 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
+        Dana Noyan is corporation in international financing and web development field:
         - Maintenance Noyanpay.net website  <br/>
         - Develop CodeIgniter modules <br/>
         - Develop PHP and wordpress plugins for envato  <br/>
         - Manage developer team  <br/>
+        Sekans Project (VOD Service):
         - Develop mobile application with ReactNative  <br/>
         - Develop TV app with ReactNative <br/>
         `,
@@ -144,14 +164,14 @@ const profile = {
     },
     {
       title: 'Lead Backend Developer',
-      company: 'Ariatak',
+      company: 'Areatak',
       url: 'http://areatak.com',
       location: 'Tehran, Iran',
       description:
         `
         - Collaborate with the development and implementation of the KYC (Know Your Customer) system in blockchain platform With HyperLedger<br/>
         - Implement the system using microservices architecture <br/>
-        - Developing project for centeral Bank in ISC <br/>
+        - Developing project for Centeral Bank in ISC <br/>
         - Developing project for Maskan bank utilizing blockchain and NodeJS <br/>
         `,
       from: 'Jan 2020',
@@ -169,7 +189,7 @@ const profile = {
       to: '2011'
     }
   ],
-  quote: 'It\'s better when everything goes according to the plan!.'
+  quote: 'It\'s better when everything goes according to the plan!'
 }
 
 const page = {
