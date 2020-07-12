@@ -2,7 +2,7 @@
 // Change your profile data here
 const profile = {
   // picture: "/img/me.jpg",
-  name: 'Mohamad Karbalaei (Zartosht Sepideman)',
+  name: 'Mohamad Karbalaei (aka Zartosht Sepideman)',
   description:
     "I'm a Backend developer working with PHP, NodeJS, Python and SQL, NoSQL Databases based on project needs.",
   bio:
