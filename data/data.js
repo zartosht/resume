@@ -8,7 +8,7 @@ const profile = {
   bio:
     `
     I've been programming since 2012. First I started coding with python for learning security, running pentests and to create automated tests (because I love it when computers do jobs for me😁).
-    After python I learned ruby for using it with metasploit. Then I came across web development and just like everyone in this business, I started with PHP language and started coding in pure PHP (No OOP and anything! Dirty as hell!).
+    <br>After python I learned ruby for using it with metasploit. Then I came across web development and just like everyone in this business, I started with PHP language and started coding in pure PHP (No OOP and anything! Dirty as hell!).
     I found wordpress and very soon, get bored and started working with Laravel version 4. I created my first web application with Laravel, and stayed in PHP till now. Used Symfony, Phalcon, CodeIgniter and ... along my journey through PHP.
     I developed my skills as programming languages developed. Learned NodeJS and started using AdonisJS because it was a great replica of the Laravel but in Javascript language.
     Worked with Express, Next, Nest and developed many microservice and projects.
@@ -17,7 +17,7 @@ const profile = {
     I nerd out when learning new programming languages functionality feels giddy when finding /destroying bugs.
     I like to face new challenges in every field in my career and I'm not afraid of them.
     `,
-  email: 'hi@Zartosht.dev',
+  email: 'Hi@Zartosht.dev',
   phone: '+98 912 77 18 19 4',
   location: 'Tehran, Iran',
   birth: '1989-07-14', // YYYY-MM-DD format
