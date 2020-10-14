@@ -32,13 +32,14 @@ const profile = {
     'Git',
     'GraphQL API',
     'gRPC',
-    'Hyperledger Fabric',
+    'Kafka',
     'Laravel',
     'Linux',
     'Lumen',
     'MicroService',
     'MongoDB',
     'Mysql',
+    'Neo4J',
     'NestJS',
     'Next',
     'Node.Js',
@@ -179,8 +180,39 @@ const profile = {
         - Developing project for Maskan bank utilizing blockchain and NodeJS <br/>
         `,
       from: 'Jan 2020',
-      to: 'Present',
+      to: 'Jul 2020',
       stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
+    },
+    {
+      title: 'Backend Developer',
+      company: 'SocialTeq',
+      url: 'https://socialteq.co',
+      location: 'Qatar',
+      description:
+        `
+        - Creating and developing NodeJS based microservices for using in an dedicated online shop platform.<br/>
+        - Developing fully modular and microservice based project.<br/>
+        - Creating custom NPM packages for using across all services.<br/>
+        - Creating custom NPM packages for using across all services.<br/>
+        - ...<br/>
+        `,
+      from: 'Jul 2020',
+      to: 'present',
+      stacks: 'NodeJS, NestJS, AdonisJS, Redis, Typescript, Python, gRPC, Microservices, ElasticSearch'
+    },
+    {
+      title: 'Lead Backend Developer',
+      company: 'Hamafza',
+      url: 'https://hamafza.ir',
+      location: 'Mashad, Iran',
+      description:
+        `
+        - Managing backend team for developing a knowledge management system.<br/>
+        - Using scrum as project management service.<br/>
+        `,
+      from: 'Jul 2020',
+      to: 'present',
+      stacks: 'NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
   ],
   education: [
