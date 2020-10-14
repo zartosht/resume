@@ -184,6 +184,20 @@ const profile = {
       stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
     },
     {
+      title: 'Lead Backend Developer',
+      company: 'Hamafza',
+      url: 'https://hamafza.ir',
+      location: 'Mashad, Iran',
+      description:
+        `
+        - Managing backend team for developing a knowledge management system.<br/>
+        - Using scrum as project management service.<br/>
+        `,
+      from: 'Jul 2020',
+      to: 'present',
+      stacks: 'NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
+    },
+    {
       title: 'Backend Developer',
       company: 'SocialTeq',
       url: 'https://socialteq.co',
@@ -199,20 +213,6 @@ const profile = {
       from: 'Jul 2020',
       to: 'present',
       stacks: 'NodeJS, NestJS, AdonisJS, Redis, Typescript, Python, gRPC, Microservices, ElasticSearch'
-    },
-    {
-      title: 'Lead Backend Developer',
-      company: 'Hamafza',
-      url: 'https://hamafza.ir',
-      location: 'Mashad, Iran',
-      description:
-        `
-        - Managing backend team for developing a knowledge management system.<br/>
-        - Using scrum as project management service.<br/>
-        `,
-      from: 'Jul 2020',
-      to: 'present',
-      stacks: 'NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
   ],
   education: [
