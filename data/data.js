@@ -184,7 +184,7 @@ const profile = {
       stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
     },
     {
-      title: 'Lead Backend Developer',
+      title: 'CTO',
       company: 'Hamafza',
       url: 'https://hamafza.ir',
       location: 'Mashad, Iran',
