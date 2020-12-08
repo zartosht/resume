@@ -24,11 +24,8 @@ const profile = {
   skills: [
     'Adonis Js',
     'CI/CD',
-    'CodeIgniter',
-    'Django',
     'Docker',
-    'Express Js',
-    'Financial Projects',
+    'ExpressJs',
     'Git',
     'GraphQL API',
     'gRPC',
@@ -41,8 +38,7 @@ const profile = {
     'Mysql',
     'Neo4J',
     'NestJS',
-    'Next',
-    'Node.Js',
+    'NodeJs',
     'Phalcon',
     'PHP',
     'PostgreSQL',
@@ -52,8 +48,7 @@ const profile = {
     'SOAP',
     'Symfony',
     'TDD',
-    'Web Socket',
-    'Wordpress'
+    'Web Socket'
   ],
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
@@ -190,12 +185,11 @@ const profile = {
       location: 'Mashad, Iran',
       description:
         `
-        - Managing backend team for developing a knowledge management system.<br/>
-        - Using scrum as project management service.<br/>
+        - Managing backend team for developing a knowledge management system.
         `,
       from: 'Jul 2020',
       to: 'present',
-      stacks: 'NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
+      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
     {
       title: 'Backend Developer',
@@ -207,12 +201,11 @@ const profile = {
         - Creating and developing NodeJS based microservices for using in an dedicated online shop platform.<br/>
         - Developing fully modular and microservice based project.<br/>
         - Creating custom NPM packages for using across all services.<br/>
-        - Creating custom NPM packages for using across all services.<br/>
         - ...<br/>
         `,
       from: 'Jul 2020',
       to: 'present',
-      stacks: 'NodeJS, NestJS, AdonisJS, Redis, Typescript, Python, gRPC, Microservices, ElasticSearch'
+      stacks: 'NodeJS, NestJS, AdonisJS, Redis, Typescript, Python, gRPC, MongoDB, Postgres, ElasticSearch'
     },
   ],
   education: [
