@@ -7,6 +7,7 @@ before_script:
     - echo "$K8S_SECRET_SSH_PRIVATE_KEY"
     - ssh-add <(echo "$K8S_SECRET_SSH_PRIVATE_KEY" | base64 -d)
     - mkdir -p ~/.ssh
+    - echo "$K8S_SECRET_SSH_PRIVATE_KEY" | base64 -d > ~/.ssh/id_rsa
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 deploy_staging:
@@ -15,7 +16,7 @@ deploy_staging:
         name: staging
         url: 206.189.48.29
     script:
-      - cat ~/.ssh/config
+      - cat ~/.ssh/id_rsa
       - ssh root@206.189.48.29 -p 1312 "cd /home/sites/zartoshtsepideman.com/www/public && git checkout master && git pull origin master && chown www-data:www-data . -R && exit"
     only:
       - master
