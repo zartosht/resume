@@ -26,7 +26,7 @@ const profile = {
     'CI/CD',
     'Docker',
     'ExpressJs',
-    'Git',
+    'GIT',
     'GraphQL API',
     'gRPC',
     'Kafka',
@@ -53,7 +53,7 @@ const profile = {
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
     twitter: 'https://twitter.com/zartoshtsepid',
-    github: 'https://github.com/zartosht',
+    GIThub: 'https://GIThub.com/zartosht',
     stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman',
     blog: 'https://virgool.io/@zartosht'
   },
@@ -116,7 +116,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Fidibo is a corporation in Digital books field and my job there was maintaining their website and create Front-end side of their desktop application:
+        Fidibo is a corporation in DiGITal books field and my job there was maintaining their website and create Front-end side of their desktop application:
         - Build and develop Fidibo\'s Desktop application <br/>
         - Website maintenance with Phalcon <br/>
         `,
@@ -176,7 +176,7 @@ const profile = {
         `,
       from: 'Jan 2020',
       to: 'Jul 2020',
-      stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, Git, CI/CD, Docker, Adonis, Nest, REST API, Soap'
+      stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, GIT, CI/CD, Docker, Adonis, Nest, REST API, Soap'
     },
     {
       title: 'CTO',
@@ -198,14 +198,16 @@ const profile = {
       location: 'Qatar',
       description:
         `
-        - Creating and developing NodeJS based microservices for using in an dedicated online shop platform.<br/>
-        - Developing fully modular and microservice based project.<br/>
-        - Creating custom NPM packages for using across all services.<br/>
+        - Creating and developing Microservices for using in an dedicated online shop platform.<br/>
+        - Using gRPC for connection between services. <br />
+        - Customizing NestJs framework. <br />
+        - Test deriven programming. <br />
+        - Creating custom node_modules.<br/>
         - ...<br/>
         `,
       from: 'Jul 2020',
       to: 'present',
-      stacks: 'NodeJS, NestJS, AdonisJS, Redis, Typescript, Python, gRPC, MongoDB, Postgres, ElasticSearch'
+      stacks: 'ElasticSearch, GIT,  gRPC, Kafka, MongoDB, NestJS, NodeJS, Postgres, Python, Redis, Typescript'
     },
   ],
   education: [
