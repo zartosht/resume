@@ -210,7 +210,7 @@ const profile = {
       stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
     {
-      title: 'CTO',
+      title: 'CTO and Advisor',
       company: 'Ranoo',
       url: 'https://ranoo.ir',
       location: 'Tehran, Iran',
