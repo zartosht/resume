@@ -53,7 +53,7 @@ const profile = {
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
     twitter: 'https://twitter.com/zartoshtsepid',
-    GIThub: 'https://GIThub.com/zartosht',
+    github: 'https://github.com/zartosht',
     stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman',
     blog: 'https://virgool.io/@zartosht'
   },
