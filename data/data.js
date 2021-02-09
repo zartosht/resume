@@ -179,19 +179,6 @@ const profile = {
       stacks: 'Kubernetes, PHP, Laravel, NodeJs, ExpressJs, KoaJs, HyperLedger Fabric, MongoDB, Postgres, Redis, Socket Programming, GIT, CI/CD, Docker, Adonis, Nest, REST API, Soap'
     },
     {
-      title: 'CTO',
-      company: 'Hamafza',
-      url: 'https://hamafza.ir',
-      location: 'Mashad, Iran',
-      description:
-        `
-        - Managing backend team for developing a knowledge management system.
-        `,
-      from: 'Jul 2020',
-      to: 'present',
-      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
-    },
-    {
       title: 'Backend Developer',
       company: 'SocialTeq',
       url: 'https://socialteq.co',
@@ -206,8 +193,34 @@ const profile = {
         - ...<br/>
         `,
       from: 'Jul 2020',
-      to: 'present',
+      to: 'Mar 2021',
       stacks: 'ElasticSearch, GIT,  gRPC, Kafka, MongoDB, NestJS, NodeJS, Postgres, Python, Redis, Typescript'
+    },
+    {
+      title: 'CTO',
+      company: 'Hamafza',
+      url: 'https://hamafza.ir',
+      location: 'Mashad, Iran',
+      description:
+        `
+        - Managing backend team for developing a knowledge management system.
+        `,
+      from: 'Jul 2020',
+      to: 'present',
+      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
+    },
+    {
+      title: 'CTO',
+      company: 'Ranoo',
+      url: 'https://ranoo.ir',
+      location: 'Tehran, Iran',
+      description:
+        `
+        - Managing developer team for developing marketing analysing applications.
+        `,
+      from: 'Feb 2021',
+      to: 'present',
+      stacks: 'PHP, NodeJS'
     },
   ],
   education: [
