@@ -1,0 +1,49 @@
+.resume-section {
+  page-break-inside: auto;
+  page-break-after: auto;
+  page-break-before: avoid;
+}
+
+.resume-item {
+  page-break-inside: avoid;
+}
+
+#skills {
+  page-break-after: avoid !important;
+}
+
+hr {
+  display: none;
+}
+
+nav {
+  display: none;
+  opacity: 0;
+}
+
+.social-icons {
+  display: none;
+  opacity: 0;
+}
+
+.fixed-top {
+  z-index: -1030;
+}
+
+.print {
+  opacity: 1;
+  height: unset;
+}
+
+.social-networks {
+  display: block;
+}
+
+.social-networks a {
+  color: black;
+  font-size: 16px;
+}
+
+.social-networks .social {
+  margin-bottom: 15px;
+}
