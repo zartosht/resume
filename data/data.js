@@ -18,8 +18,8 @@ const profile = {
     I like to face new challenges in every field in my career and I'm not afraid of them.
     `,
   email: 'Hi@Zartosht.dev',
-  phone: '+98 912 77 18 19 4',
-  location: 'Tehran, Iran',
+  // phone: '+98 912 77 18 19 4',
+  location: 'Toronto, Canada',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'Adonis Js',
@@ -206,21 +206,21 @@ const profile = {
         - Managing backend team for developing a knowledge management system.
         `,
       from: 'Jul 2020',
-      to: 'present',
+      to: 'Mar 2021',
       stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
     {
-      title: 'CTO and Advisor',
-      company: 'Ranoo',
-      url: 'https://ranoo.ir',
-      location: 'Tehran, Iran',
+      title: 'Backend developer',
+      company: 'STAGE',
+      // url: 'https://ranoo.ir',
+      location: 'Toronto, Canada',
       description:
         `
-        - Managing developer team for developing marketing analysing applications.
+        - Developing ecommerce platform.
         `,
-      from: 'Feb 2021',
+      from: 'Mar 2021',
       to: 'present',
-      stacks: 'PHP, NodeJS'
+      stacks: 'NodeJS, NestJS, Postgres, Shopify'
     },
   ],
   education: [
