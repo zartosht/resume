@@ -212,7 +212,7 @@ const profile = {
     {
       title: 'Backend developer',
       company: 'STAGE',
-      // url: 'https://ranoo.ir',
+      url: 'https://myStage.ca',
       location: 'Toronto, Canada',
       description:
         `

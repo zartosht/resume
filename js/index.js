@@ -29,7 +29,9 @@ function fillTemplate() {
     birth.getMonth() + 1
   }/${birth.getDate()}`;
 
-  document.getElementById("phone").innerHTML = profile.phone;
+  if (profile.phone) {
+    document.getElementById("phone").innerHTML = profile.phone;
+  }
 
   $("#email").find(".email").text(profile.email);
   document
