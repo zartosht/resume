@@ -31,6 +31,8 @@ function fillTemplate() {
 
   if (profile.phone) {
     document.getElementById("phone").innerHTML = profile.phone;
+  } else {
+    document.getElementsByClassName('fa fa-mobile-alt')[0].parentElement.classList.add('d-none');
   }
 
   $("#email").find(".email").text(profile.email);

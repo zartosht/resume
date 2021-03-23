@@ -220,7 +220,7 @@ const profile = {
         `,
       from: 'Mar 2021',
       to: 'present',
-      stacks: 'NodeJS, NestJS, Postgres, Shopify'
+      stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Shopify'
     },
   ],
   education: [
