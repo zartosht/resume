@@ -216,7 +216,9 @@ const profile = {
       location: 'Toronto, Canada',
       description:
         `
-        - Developing ecommerce platform.
+        - Developing first-ever video e-commerce platform.
+        - Developing app for Shopify partnership
+        - Working with AWS Lambda functions, SQS, Event Bridge.
         `,
       from: 'Mar 2021',
       to: 'present',
