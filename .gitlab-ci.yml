@@ -13,8 +13,8 @@ deploy_staging:
     type: deploy
     environment:
         name: staging
-        url: 206.189.48.29
+        url: 165.22.231.52
     script:
-      - ssh root@206.189.48.29 -p 1312 "cd /home/sites/zartoshtsepideman.com/www/public && git checkout master && git pull origin master && chown www-data:www-data . -R && exit"
+      - ssh root@165.22.231.52 -p 1312 "cd /home/sites/zartoshtsepideman.com/www/public && git checkout master && git pull origin master && chown www-data:www-data . -R && exit"
     only:
       - master
