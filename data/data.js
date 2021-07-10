@@ -211,8 +211,8 @@ const profile = {
     },
     {
       title: 'Backend developer',
-      company: 'STAGE',
-      url: 'https://myStage.ca',
+      company: 'Stage Marketplace',
+      url: 'https://stagemarketplace.shop',
       location: 'Toronto, Canada',
       description:
         `
