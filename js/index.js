@@ -39,7 +39,7 @@ function fillTemplate() {
   document
     .getElementById("email")
     .setAttribute("href", "mailto:" + profile.email);
-  $("#description").find(".quote").text(`"${profile.quote}"`);
+  $("#description").find(".quote").text(profile.quote);
   $("#description").find(".description").text(profile.description);
   // Social
   document
