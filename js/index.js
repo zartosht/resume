@@ -39,8 +39,8 @@ function fillTemplate() {
   document
     .getElementById("email")
     .setAttribute("href", "mailto:" + profile.email);
-  $("#description").find(".quote").text(profile.quote);
-  $("#description").find(".description").text(profile.description);
+  $("#description").find(".quote").innerHTML = profile.quote;
+  $("#description").find(".description").innerHTML = profile.description;
   // Social
   document
     .getElementById("linkedin")
