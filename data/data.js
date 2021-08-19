@@ -4,7 +4,7 @@ const profile = {
   picture: "/img/me.jpg",
   name: 'Mohamad Karbalaei (aka Zartosht Sepideman)',
   description:
-    "<p>I'm a <strong>Backend developer</strong> primarily working <strong>NodeJS</strong> (<strong>TypeScript</strong> and <strong>NestJS</strong>) with a rich background in working with <strong>PHP</strong>.</p>",
+    "I'm a Backend developer primarily working NodeJS (TypeScript and NestJS) with a rich background in working with PHP.",
   bio:
     `
     <p>I've been programming since <strong>2012</strong>. I started with PHP language and started coding in pure <strong>PHP</strong> (No OOP and anything! Dirty as hell!). I found WordPress and very soon, get bored and started working with <strong>Laravel</strong> version 4. I created my first web application with <strong>Laravel</strong>. I developed my skills as programming languages developed.</p>
