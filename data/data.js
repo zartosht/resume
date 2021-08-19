@@ -4,11 +4,11 @@ const profile = {
   picture: "/img/me.jpg",
   name: 'Mohamad Karbalaei (aka Zartosht Sepideman)',
   description:
-    "I'm a Backend developer working with PHP, NodeJS, Python and SQL, NoSQL Databases based on project needs.",
+    "<p>I'm a <strong>Backend developer</strong> primarily working <strong>NodeJS</strong> (<strong>TypeScript</strong> and <strong>NestJS</strong>) with a rich background in working with <strong>PHP</strong>.</p>",
   bio:
     `
     <p>I've been programming since <strong>2012</strong>. I started with PHP language and started coding in pure <strong>PHP</strong> (No OOP and anything! Dirty as hell!). I found WordPress and very soon, get bored and started working with <strong>Laravel</strong> version 4. I created my first web application with <strong>Laravel</strong>. I developed my skills as programming languages developed.</p>
-<p>Then I learned <strong>NodeJS</strong> and started using <strong>AdonisJS</strong> because it was an excellent replica of <strong>Laravel</strong> but in <strong>Javascript</strong>. Worked with <strong>Express</strong>, <strong>Fastify</strong>, <strong>NestJS</strong> and created many microservice and projects and stayed in <strong>NestJS</strong> till now.</p>
+<p>Then I learned <strong>NodeJS</strong> and started using <strong>AdonisJS</strong> because it was an excellent replica of <strong>Laravel</strong> but in <strong>Javascript</strong>. Worked with <strong>Express</strong>, <strong>Fastify</strong>, <strong>NestJS</strong> and created many microservice and projects and stayed in <strong>NestJS</strong> (<strong>TypeScript</strong>) till now.</p>
 <p>I love developing innovative applications, automated tasks, crawlers, fixing bugs, and find a way to break the computer rules. I'm a <strong>Back-end developer</strong> who has experience creating, maintaining, and implementing everything from databases (<strong>MySQL</strong>, <strong>Postgres</strong>, <strong>MongoDB</strong>) to messaging (<strong>Redis</strong>, <strong>Kafka</strong>) to web pages.</p>
 <p>I nerd out when learning new programming languages functionality feels giddy when finding /destroying <strong>bugs</strong>. I like to face new challenges in every field in my career, and I'm not afraid of them.</p>
     `,
@@ -40,6 +40,7 @@ const profile = {
     'Restful API',
     'Symfony',
     'TDD',
+    'TypeScript',
     'Web Socket'
   ],
   social: {
@@ -186,7 +187,7 @@ const profile = {
         `,
       from: 'Jul 2020',
       to: 'Mar 2021',
-      stacks: 'ElasticSearch, GIT,  gRPC, Kafka, MongoDB, NestJS, NodeJS, Postgres, Python, Redis, Typescript'
+      stacks: 'ElasticSearch, GIT,  gRPC, Kafka, MongoDB, NestJS, NodeJS, Postgres, Python, Redis, TypeScript'
     },
     {
       title: 'CTO',
@@ -199,7 +200,7 @@ const profile = {
         `,
       from: 'Jul 2020',
       to: 'Mar 2021',
-      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, Typescript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
+      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, TypeScript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
     },
     {
       title: 'Backend developer',
@@ -214,7 +215,7 @@ const profile = {
         `,
       from: 'Mar 2021',
       to: 'present',
-      stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Shopify'
+      stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Redis, Shopify, TypeScript'
     },
   ],
   education: [
