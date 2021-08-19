@@ -19,7 +19,7 @@ const profile = {
     `,
   email: 'Hi@Zartosht.dev',
   // phone: '+98 912 77 18 19 4',
-  location: 'Toronto, Canada',
+  location: 'Turkey, Istanbul',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'Adonis Js',
@@ -65,7 +65,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Shukamo was a Sour Confectionery Creams that I worked in their main office as an IT manager who created and maintained their networks:
+        Shukamo was a Sour Confectionery Creams that I worked in their main office as an IT manager who created and maintained their networks:<br/>
         - Handle networking problems inside corporation.<br/>
         - Wordpress theme development.<br/>
         - Wordpress plugin development.<br/>
@@ -81,7 +81,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Benis Rouesta was a company that worked alonged with Shukamo but in different field, "Construction". my job here was same as Shukamo but in different office:
+        Benis Rouesta was a company that worked alonged with Shukamo but in different field, "Construction". my job here was same as Shukamo but in different office:<br/>
         - Wordpress theme development. <br/>
         - Wordpress plugin development. <br/>
         - Javascript development for knightlab. <br/>
@@ -97,10 +97,10 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Tav company was a business that worked mainly in SEO and web development field, It had some other businesses underneath:
-        - TavServer: Hosting
-        - TavAds: Advertisements
-        My main responsibilities there was:
+        Tav company was a business that worked mainly in SEO and web development field, It had some other businesses underneath:<br/>
+        - TavServer: Hosting<br/>
+        - TavAds: Advertisements<br/>
+        My main responsibilities there was:<br/>
         - Development of wordpress plugins <br/>
         - Development of wordpress themes <br/>
         - Development of PHP modules <br/>
@@ -116,7 +116,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Fidibo is a corporation in DiGITal books field and my job there was maintaining their website and create Front-end side of their desktop application:
+        Fidibo is a corporation in DiGITal books field and my job there was maintaining their website and create Front-end side of their desktop application:<br/>
         - Build and develop Fidibo\'s Desktop application <br/>
         - Website maintenance with Phalcon <br/>
         `,
@@ -131,7 +131,7 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Media Hamrah was a aggregator that worked with MCI and MTN in Value added services (VAS) field:
+        Media Hamrah was a aggregator that worked with MCI and MTN in Value added services (VAS) field:<br/>
         - Build and develop PHP microservices for using in VAS projects <br/>
         - Develop REST APIs for interacting with MCI and MTN <br/>
         - Develop backend of <a href="https://play.google.com/store/apps/details?id=com.mobilemediacomm.wallpapers">Everpics</a> (android app) <br/>
@@ -148,12 +148,12 @@ const profile = {
       location: 'Tehran, Iran',
       description:
         `
-        Dana Noyan is corporation in international financing and web development field:
+        Dana Noyan is corporation in international financing and web development field:<br/>
         - Maintenance Noyanpay.net website  <br/>
         - Develop CodeIgniter modules <br/>
         - Develop PHP and wordpress plugins for envato  <br/>
         - Manage developer team  <br/>
-        Sekans Project (VOD Service):
+        Sekans Project (VOD Service):<br/>
         - Develop mobile application with ReactNative  <br/>
         - Develop TV app with ReactNative <br/>
         `,
