@@ -7,15 +7,10 @@ const profile = {
     "I'm a Backend developer working with PHP, NodeJS, Python and SQL, NoSQL Databases based on project needs.",
   bio:
     `
-    I've been programming since 2012. First I started coding with python for learning security, running pentests and to create automated tests (because I love it when computers do jobs for me😁).
-    <br>After python I learned ruby for using it with metasploit. Then I came across web development and just like everyone in this business, I started with PHP language and started coding in pure PHP (No OOP and anything! Dirty as hell!).
-    I found wordpress and very soon, get bored and started working with Laravel version 4. I created my first web application with Laravel, and stayed in PHP till now. Used Symfony, Phalcon, CodeIgniter and ... along my journey through PHP.
-    I developed my skills as programming languages developed. Learned NodeJS and started using AdonisJS because it was a great replica of the Laravel but in Javascript language.
-    Worked with Express, Next, Nest and developed many microservice and projects.
-    Personally I love developing smart applications, automated tasks, crawlers, fixing bugs and find a way to break the computer rules.
-    I'm a Back-end developer who has experience with creating, maintaining and implementing everything from databases to web pages.
-    I nerd out when learning new programming languages functionality feels giddy when finding /destroying bugs.
-    I like to face new challenges in every field in my career and I'm not afraid of them.
+    <p>I've been programming since <strong>2012</strong>. I started with PHP language and started coding in pure <strong>PHP</strong> (No OOP and anything! Dirty as hell!). I found WordPress and very soon, get bored and started working with <strong>Laravel</strong> version 4. I created my first web application with <strong>Laravel</strong>. I developed my skills as programming languages developed.</p>
+<p>Then I learned <strong>NodeJS</strong> and started using <strong>AdonisJS</strong> because it was an excellent replica of <strong>Laravel</strong> but in <strong>Javascript</strong>. Worked with <strong>Express</strong>, <strong>Fastify</strong>, <strong>NestJS</strong> and created many microservice and projects and stayed in <strong>NestJS</strong> till now.</p>
+<p>I love developing innovative applications, automated tasks, crawlers, fixing bugs, and find a way to break the computer rules. I'm a <strong>Back-end developer</strong> who has experience creating, maintaining, and implementing everything from databases (<strong>MySQL</strong>, <strong>Postgres</strong>, <strong>MongoDB</strong>) to messaging (<strong>Redis</strong>, <strong>Kafka</strong>) to web pages.</p>
+<p>I nerd out when learning new programming languages functionality feels giddy when finding /destroying <strong>bugs</strong>. I like to face new challenges in every field in my career, and I'm not afraid of them.</p>
     `,
   email: 'Hi@Zartosht.dev',
   // phone: '+98 912 77 18 19 4',
@@ -36,16 +31,13 @@ const profile = {
     'MicroService',
     'MongoDB',
     'Mysql',
-    'Neo4J',
     'NestJS',
     'NodeJs',
-    'Phalcon',
     'PHP',
     'PostgreSQL',
     'Python',
     'Redis',
     'Restful API',
-    'SOAP',
     'Symfony',
     'TDD',
     'Web Socket'
