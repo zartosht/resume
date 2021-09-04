@@ -14,7 +14,7 @@ const profile = {
     `,
   email: 'Hi@Zartosht.dev',
   // phone: '+98 912 77 18 19 4',
-  location: 'Turkey, Istanbul',
+  location: 'Istanbul, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'Adonis Js',
@@ -190,25 +190,13 @@ const profile = {
       stacks: 'ElasticSearch, GIT,  gRPC, Kafka, MongoDB, NestJS, NodeJS, Postgres, Python, Redis, TypeScript'
     },
     {
-      title: 'CTO',
-      company: 'Hamafza',
-      url: 'https://hamafza.ir',
-      location: 'Mashad, Iran',
-      description:
-        `
-        - Managing backend team for developing a knowledge management system.
-        `,
-      from: 'Jul 2020',
-      to: 'Mar 2021',
-      stacks: 'PHP, Lumen, NodeJS, NestJS, Kafka, Redis, TypeScript, Python, GrpahQL, Microservices, Neo4J, ElasticSearch'
-    },
-    {
       title: 'Backend developer',
       company: 'Stage Marketplace',
       url: 'https://stagemarketplace.shop',
       location: 'Toronto, Canada',
       description:
         `
+        Stage is a Social Commerce Marketplace fully integrated with Shopify, allow shoppers to monetize their accounts. <br />
         - Developing first-ever video e-commerce platform. <br/ >
         - Developing app for Shopify partnership. <br/ >
         - Working with AWS Lambda functions, SQS, Event Bridge. <br/ >
