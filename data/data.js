@@ -17,7 +17,7 @@ const profile = {
   location: 'Istanbul, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
-    'Adonis Js',
+    'AWS',
     'CI/CD',
     'Docker',
     'ExpressJs',
@@ -28,7 +28,6 @@ const profile = {
     'Laravel',
     'Linux',
     'Lumen',
-    'MicroService',
     'MongoDB',
     'Mysql',
     'NestJS',
@@ -38,10 +37,8 @@ const profile = {
     'Python',
     'Redis',
     'Restful API',
-    'Symfony',
     'TDD',
-    'TypeScript',
-    'Web Socket'
+    'TypeScript'
   ],
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
