@@ -13,8 +13,8 @@ const profile = {
 <p>I nerd out when learning new programming languages functionality feels giddy when finding /destroying <strong>bugs</strong>. I like to face new challenges in every field in my career, and I'm not afraid of them.</p>
     `,
   email: 'Hi@Zartosht.dev',
-  // phone: '+98 912 77 18 19 4',
-  location: 'Istanbul, Turkey',
+  phone: '+90 551 27 18 19 4',
+  location: 'Izmir, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'AWS',
