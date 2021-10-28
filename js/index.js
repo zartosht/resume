@@ -1,9 +1,3 @@
-/*!
- * Guim González - Portfolio v1.0.0 (https://guimgonzalez.me)
- * Copyright 2019 Guim González
- * Licensed under MIT (https://github.com/GuimG/dev-portfolio/master/LICENSE)
- */
-
 function setup() {
   fillTemplate();
   colorTheme();
