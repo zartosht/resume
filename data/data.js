@@ -7,13 +7,13 @@ const profile = {
     "I'm a Backend developer primarily working NodeJS (TypeScript and NestJS) with a rich background in working with PHP.",
   bio:
     `
-    <p>I've been programming since <strong>2012</strong>. I started with PHP language and started coding in pure <strong>PHP</strong> (No OOP and anything! Dirty as hell!). I found WordPress and very soon, get bored and started working with <strong>Laravel</strong> version 4. I created my first web application with <strong>Laravel</strong>. I developed my skills as programming languages developed.</p>
-<p>Then I learned <strong>NodeJS</strong> and started using <strong>AdonisJS</strong> because it was an excellent replica of <strong>Laravel</strong> but in <strong>Javascript</strong>. Worked with <strong>Express</strong>, <strong>Fastify</strong>, <strong>NestJS</strong> and created many microservice and projects and stayed in <strong>NestJS</strong> (<strong>TypeScript</strong>) till now.</p>
-<p>I love developing innovative applications, automated tasks, crawlers, fixing bugs, and find a way to break the computer rules. I'm a <strong>Back-end developer</strong> who has experience creating, maintaining, and implementing everything from databases (<strong>MySQL</strong>, <strong>Postgres</strong>, <strong>MongoDB</strong>) to messaging (<strong>Redis</strong>, <strong>Kafka</strong>) to web pages.</p>
+    <p>I've been programming since <strong>2012</strong>. I started with PHP language and started coding in pure <strong>PHP</strong> (No OOP and anything! Dirty as hell!). I found WordPress and very soon got bored and started working with <strong>Laravel</strong> version 4. I created my first web application with <strong>Laravel</strong>. I developed my skills as programming languages developed.</p>
+<p>Then I learned <strong>NodeJS</strong> and started using <strong>AdonisJS</strong> because it was an excellent replica of <strong>Laravel</strong> but in <strong>Javascript</strong>. Worked with <strong>Express</strong>, <strong>Fastify</strong>, <strong>NestJS</strong>,created many microservice and projects and stayed in <strong>NestJS</strong> (<strong>TypeScript</strong>) until now.</p>
+<p>I love developing innovative applications, automated tasks, crawlers, fixing bugs, and finding a way to break the computer rules. I'm a <strong>Back-end developer</strong> who has experience creating, maintaining, and implementing everything from databases (<strong>MySQL</strong>, <strong>Postgres</strong>, <strong>MongoDB</strong>) to messaging (<strong>Redis</strong>, <strong>Kafka</strong>) to web pages.</p>
 <p>I nerd out when learning new programming languages functionality feels giddy when finding /destroying <strong>bugs</strong>. I like to face new challenges in every field in my career, and I'm not afraid of them.</p>
     `,
   email: 'Hi@Zartosht.dev',
-  phone: '+90 551 27 18 19 4',
+  phone: '+90 (551) 27 18 19 4',
   location: 'Izmir, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
@@ -193,10 +193,15 @@ const profile = {
       location: 'Toronto, Canada',
       description:
         `
-        Stage is a Social Commerce Marketplace fully integrated with Shopify, allow shoppers to monetize their accounts. <br />
-        - Developing first-ever video e-commerce platform. <br/ >
-        - Developing app for Shopify partnership. <br/ >
-        - Working with AWS Lambda functions, SQS, Event Bridge. <br/ >
+        The stage is a Social Commerce Marketplace fully integrated with Shopify, allowing shoppers to monetize their accounts. <br />
+        - Tackling day-to-day challenges to make the codebase better than the day before. <br />
+        - I developed several microservices to reduce the main server loads. <br />
+        - I refactored the project to prevent the team from using "any" or methods without return type. <br />
+        - I developed some custom NestJs decorators to reduce redundancy and have a better codebase. <br />
+        - I created a Typescript interface for EasyPost API to have a cleaner code. <br />
+        - Developing first-ever video e-commerce platform. <br />
+        - Developing an app for Shopify partnership. <br />
+        - Working with AWS Lambda functions, SQS, and Shopify Event Bridge. <br />
         `,
       from: 'Mar 2021',
       to: 'present',
