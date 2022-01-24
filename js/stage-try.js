@@ -1,1 +1,4 @@
-console.log('run')
+document.addEventListener('ready', function() {
+    console.log('run')
+    console.log(shop);
+})
