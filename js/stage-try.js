@@ -1,4 +1,4 @@
 document.addEventListener('ready', function() {
     console.log('run')
-    console.log(shop);
+    console.log(window.location.href);
 })
