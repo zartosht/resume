@@ -2,7 +2,7 @@
 // Change your profile data here
 const profile = {
   picture: "/img/me.jpg",
-  name: 'Mohamad Karbalaei (aka Zartosht Sepideman)',
+  name: 'Zartosht Sepideman',
   description:
     "I'm a Backend developer primarily working NodeJS (TypeScript and NestJS) with a rich background in working with PHP.",
   bio:
@@ -188,8 +188,8 @@ const profile = {
     },
     {
       title: 'Backend developer',
-      company: 'Stage Marketplace',
-      url: 'https://stagemarketplace.shop',
+      company: 'Stage Try',
+      url: 'https://stagetry.com',
       location: 'Toronto, Canada',
       description:
         `
