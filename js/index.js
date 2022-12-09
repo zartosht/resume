@@ -48,7 +48,11 @@ function fillTemplate() {
   document
     .getElementById("stackoverflow")
     .setAttribute("href", profile.social.stackoverflow);
-  document.getElementById("blog").setAttribute("href", profile.social.blog);
+  if (profile.social.blog) {
+    document.getElementById("blog").setAttribute("href", profile.social.blog);
+  } else {
+    document.getElementById("blog").remove();
+  }
   document
     .getElementById("linkedinPrint")
     .setAttribute("href", profile.social.linkedin);
@@ -66,10 +70,12 @@ function fillTemplate() {
     .setAttribute("href", profile.social.stackoverflow);
   document.getElementById("stackoverflowPrint").innerHTML =
     profile.social.stackoverflow;
-  document
-    .getElementById("blogPrint")
-    .setAttribute("href", profile.social.blog);
-  document.getElementById("blogPrint").innerHTML = profile.social.blog;
+  if (profile.social.blog) {
+    document
+      .getElementById("blogPrint")
+      .setAttribute("href", profile.social.blog);
+    document.getElementById("blogPrint").innerHTML = profile.social.blog;
+  }
   document.getElementById("bio-text").innerHTML = profile.bio;
   // Experience
   profile.experience = profile.experience.reverse();
@@ -89,10 +95,15 @@ function fillTemplate() {
     const experienceLinks = profile.experience[i].url.map((u) => {
       return `<i class="fas fa-link"></i> <a class="url" link="url" href="${u}">${u}</a>`;
     });
-    experienceTemplate.innerHTML = experienceTemplate.innerHTML.replace(
-      /__URLS__/g,
-      experienceLinks.join()
-    );
+    experienceTemplate
+      .find(".experience_urls")
+      .html(experienceLinks.join("<br />"));
+    // experienceTemplate.html(
+    //   experienceTemplate
+    //     .html()
+    //     .replace(/__URLS__/g, experienceLinks.join("<br />"))
+    // );
+    console.log(experienceTemplate);
 
     experienceTemplate.find(".stack").html(profile.experience[i].stacks);
     experienceTemplate

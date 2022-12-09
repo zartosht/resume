@@ -41,8 +41,7 @@ const profile = {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
     twitter: 'https://twitter.com/zartoshtsepid',
     github: 'https://github.com/zartosht',
-    stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman',
-    blog: 'https://virgool.io/@zartosht'
+    stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman'
   },
   experience: [
     {
@@ -185,8 +184,8 @@ const profile = {
     },
     {
       title: 'Backend developer',
-      company: 'Stage Try',
-      url: ['https://stagetry.com', 'https://stagemeta.world'],
+      company: 'Stage Technology Inc.',
+      url: ['https://stagemeta.world', 'https://stagetry.com'],
       location: 'Toronto, Canada',
       description:
         `
