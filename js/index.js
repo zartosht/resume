@@ -26,7 +26,9 @@ function fillTemplate() {
   if (profile.phone) {
     document.getElementById("phone").innerHTML = profile.phone;
   } else {
-    document.getElementsByClassName('fa fa-mobile-alt')[0].parentElement.classList.add('d-none');
+    document
+      .getElementsByClassName("fa fa-mobile-alt")[0]
+      .parentElement.classList.add("d-none");
   }
 
   $("#email").find(".email").text(profile.email);
@@ -72,13 +74,26 @@ function fillTemplate() {
   // Experience
   profile.experience = profile.experience.reverse();
   for (var i = 0; i < profile.experience.length; i++) {
+    if (!profile.experience[i].url) {
+      profile.experience[i].url = [];
+    }
+    if (!Array.isArray(profile.experience[i].url)) {
+      profile.experience[i].url = [profile.experience[i].url];
+    }
     var experienceTemplate = $("#credsTemplate");
     experienceTemplate.find(".mb-0").text(profile.experience[i].company);
     experienceTemplate.find(".mb-3").text(profile.experience[i].title);
     experienceTemplate.find("p").html(profile.experience[i].description);
     experienceTemplate.find(".location").text(profile.experience[i].location);
-    experienceTemplate.find(".url").text(profile.experience[i].url);
-    experienceTemplate.find(".url").attr("href", profile.experience[i].url);
+
+    const experienceLinks = profile.experience[i].url.map((u) => {
+      return `<i class="fas fa-link"></i> <a class="url" link="url" href="${u}">${u}</a>`;
+    });
+    experienceTemplate.innerHTML = experienceTemplate.innerHTML.replace(
+      /__URLS__/g,
+      experienceLinks.join()
+    );
+
     experienceTemplate.find(".stack").html(profile.experience[i].stacks);
     experienceTemplate
       .find(".date")

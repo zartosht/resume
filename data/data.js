@@ -18,16 +18,12 @@ const profile = {
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
     'AWS',
-    'CI/CD',
     'Docker',
     'ExpressJs',
     'GIT',
     'GraphQL API',
-    'gRPC',
-    'Kafka',
-    'Laravel',
+    'gRPC',,
     'Linux',
-    'Lumen',
     'MongoDB',
     'Mysql',
     'NestJS',
@@ -36,9 +32,10 @@ const profile = {
     'PostgreSQL',
     'Python',
     'Redis',
-    'Restful API',
-    'TDD',
-    'TypeScript'
+    'Solidity',
+    'Terraform',
+    'TypeScript',
+    'Web3'
   ],
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
@@ -189,14 +186,20 @@ const profile = {
     {
       title: 'Backend developer',
       company: 'Stage Try',
-      url: 'https://stagetry.com',
+      url: ['https://stagetry.com', 'https://stagemeta.world'],
       location: 'Toronto, Canada',
       description:
         `
+        <h2>Stage Meta</h2>
+        We are developing a web3 application for owning a Plaque NFT and assigning it to a Metaverse world.
+        In this project, I learned about Blockchain, Ethereum, Solidity, Smart Contracts, IPFS, etc...
+        I created a Smart contract written in Solidity for creating Plaque NFTs and selling them on the StageMeta marketplace.
+
+        <h2>Stage Try</h2>
         The stage is a Social Commerce Marketplace fully integrated with Shopify, allowing shoppers to monetize their accounts. <br />
         - Tackling day-to-day challenges to make the codebase better than the day before. <br />
         - I developed several microservices to reduce the main server loads. <br />
-        - I refactored the project to prevent the team from using "any" or methods without return type. <br />
+        - I refactored the project to prevent the team from using "any" or methods without a return type. <br />
         - I developed some custom NestJs decorators to reduce redundancy and have a better codebase. <br />
         - I created a Typescript interface for EasyPost API to have a cleaner code. <br />
         - Developing first-ever video e-commerce platform. <br />
@@ -205,7 +208,7 @@ const profile = {
         `,
       from: 'Mar 2021',
       to: 'present',
-      stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Redis, Shopify, TypeScript'
+      stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Redis, Shopify, Solidity, Terraform, TypeScript, Web3'
     },
   ],
   education: [
