@@ -98,12 +98,6 @@ function fillTemplate() {
     experienceTemplate
       .find(".experience_urls")
       .html(experienceLinks.join("<br />"));
-    // experienceTemplate.html(
-    //   experienceTemplate
-    //     .html()
-    //     .replace(/__URLS__/g, experienceLinks.join("<br />"))
-    // );
-    console.log(experienceTemplate);
 
     experienceTemplate.find(".stack").html(profile.experience[i].stacks);
     experienceTemplate
