@@ -12,7 +12,7 @@ const profile = {
 <p>I love developing innovative applications, automated tasks, crawlers, fixing bugs, and finding a way to break the computer rules. I'm a <strong>Back-end developer</strong> who has experience creating, maintaining, and implementing everything from databases (<strong>MySQL</strong>, <strong>Postgres</strong>, <strong>MongoDB</strong>) to messaging (<strong>Redis</strong>, <strong>Kafka</strong>) to web pages.</p>
 <p>I nerd out when learning new programming languages functionality feels giddy when finding /destroying <strong>bugs</strong>. I like to face new challenges in every field in my career, and I'm not afraid of them.</p>
     `,
-  email: 'Hi@Zartosht.dev',
+  email: 'xashayarsha@gmail.com',
   phone: '+90 (551) 27 18 19 4',
   location: 'Izmir, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
