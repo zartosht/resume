@@ -16,25 +16,40 @@ const profile = {
   location: 'Izmir, Turkey',
   birth: '1989-07-14', // YYYY-MM-DD format
   skills: [
-    'AWS',
-    'Docker',
-    'ExpressJs',
-    'GIT',
-    'GraphQL API',
-    'gRPC',,
-    'Linux',
-    'MongoDB',
-    'Mysql',
-    'NestJS',
-    'NodeJs',
-    'PHP',
-    'PostgreSQL',
-    'Python',
-    'Redis',
-    'Solidity',
-    'Terraform',
-    'TypeScript',
-    'Web3'
+    "Amazon Web Services (AWS)",
+    "API Development",
+    "AWS",
+    "Datadog",
+    "Django",
+    "Docker",
+    "Elasticsearch",
+    "ExpressJs",
+    "Git",
+    "GIT",
+    "Grafana",
+    "GraphQL API",
+    "gRPC",
+    "JavaScript",
+    "Jest",
+    "Linux",
+    "MongoDB",
+    "Mysql",
+    "NestJS",
+    "Node.js",
+    "NodeJs",
+    "Object-Oriented Programming (OOP)",
+    "PHP",
+    "PostgreSQL",
+    "Python",
+    "Redis",
+    "REST APIs",
+    "Snowflake",
+    "Software Development",
+    "Solidity",
+    "Terraform",
+    "TypeScript",
+    "Web Development",
+    "Web3"
   ],
   social: {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
@@ -184,7 +199,7 @@ const profile = {
     {
       title: 'Backend developer',
       company: 'Stage Technology Inc.',
-      url: ['https://stagemeta.world', 'https://stagetry.com'],
+      url: ['https://stagemeta.world'],
       location: 'Toronto, Canada',
       description:
         `
@@ -205,8 +220,29 @@ const profile = {
         - Working with AWS Lambda functions, SQS, and Shopify Event Bridge. <br />
         `,
       from: 'Mar 2021',
-      to: 'present',
+      to: 'Mar 2023',
       stacks: 'AWS, SQS, AWS Lambda, NodeJS, NestJS, Postgres, Redis, Shopify, Solidity, Terraform, TypeScript, Web3'
+    },
+    {
+      title: 'NodeJS Backend Developer',
+      company: 'configure8',
+      url: ['https://configure8.io'],
+      location: 'Remote',
+      description:
+        `
+        <p>As a Node.js Backend Developer at Configure8, the focus is on building and maintaining server-side logic for web applications. This involves using Node.js and JavaScript to develop efficient, scalable backend services. The role centers on integrating various software components seamlessly through REST APIs.</p>
+        
+        <p>Expertise in Terraform and AWS is key for managing and orchestrating infrastructure, ensuring everything runs smoothly and reliably. Proficiency in Jest is crucial for implementing robust testing strategies, maintaining high code quality and reliability.</p>
+
+        <p>Monitoring and optimizing application performance is a significant part of the job, utilizing tools like Datadog, Grafana, and Elasticsearch. Skills in managing databases with Snowflake and MongoDB are essential for handling data and driving informed decisions.</p>
+
+        <p>Involvement in web development and object-oriented programming extends from initial concepts to deployment, contributing to the overall development lifecycle. Comfort with Linux environments and Git for version control is part of the daily workflow.</p>
+
+        <p>Overall, the role is about ensuring the backend of applications is robust and efficient, while also taking care of infrastructure management and performance optimization.</p>
+        `,
+      from: 'Mar 2023',
+      to: 'Present',
+      stacks: 'Terraform, TypeScript, NestJS, Jest, Amazon Web Services (AWS), Datadog, Grafana, Snowflake, Elasticsearch, REST APIs, Software Development, Node.js, Web Development, Object-Oriented Programming (OOP), JavaScript, Linux, MongoDB, Git, API Development'
     },
   ],
   education: [
