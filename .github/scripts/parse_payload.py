@@ -12,7 +12,8 @@ def main():
         # Example: Print the parsed JSON
         print(f"Parsed custom input: {parsed_input}")
 
-        # Add your custom logic here to work with the parsed JSON data
+        for key, value in parsed_input.items():
+            print(f"Key: {key}, Value: {value}")
 
     except json.JSONDecodeError:
         print("Error: Custom input is not valid JSON")
