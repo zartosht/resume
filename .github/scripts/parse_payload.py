@@ -1,14 +1,21 @@
-import json
 import os
+import json
 
 def main():
-    # Load the event payload
-    with open(os.environ['GITHUB_EVENT_PATH'], 'r') as file:
-        event_payload = json.load(file)
-    
-    # Parse the payload (example: print the commit messages)
-    for commit in event_payload['commits']:
-        print(f"Commit message: {commit['message']}")
+    # Read the custom input from the environment variable
+    custom_input = os.environ.get('CUSTOM_INPUT', '{}')
+
+    try:
+        # Parse the JSON input
+        parsed_input = json.loads(custom_input)
+
+        # Example: Print the parsed JSON
+        print(f"Parsed custom input: {parsed_input}")
+
+        # Add your custom logic here to work with the parsed JSON data
+
+    except json.JSONDecodeError:
+        print("Error: Custom input is not valid JSON")
 
 if __name__ == "__main__":
     main()
