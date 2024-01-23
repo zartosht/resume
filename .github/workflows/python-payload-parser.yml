@@ -6,7 +6,7 @@ on:
       custom_input:
         description: 'Custom input for workflow'
         required: false
-        default: 'Default value'
+        default: '{}'
 
 jobs:
   run_custom_script:
