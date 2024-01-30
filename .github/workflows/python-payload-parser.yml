@@ -3,30 +3,94 @@ name: Manual Trigger Workflow
 on:
   workflow_dispatch:
     inputs:
-      custom_input:
-        description: 'Custom input for workflow'
+      public_api_token:
+        description: 'Configure8 Public API Token'
+        required: true
+      service_name:
+        description: 'Service name'
+        required: true
+      service_description:
+        description: 'Service description'
         required: false
-        default: '{}'
+      service_repository:
+        description: 'Service repository'
+        required: false
+      service_application:
+        description: 'Service application'
+        required: false
+      service_link_title:
+        description: 'Service link title'
+        required: false
+      service_link_type:
+        description: 'Service link type'
+        required: false
+      service_link_url:
+        description: 'Service link URL'
+        required: false
+      service_environments:
+        description: 'Service environments'
+        required: false
+      service_owners:
+        description: 'Service owners'
+        required: false
+      service_viewers:
+        description: 'Service viewers'
+        required: false
+      service_visibility:
+        description: 'Service visibility'
+        required: false
+      service_automap_name:
+        description: 'Service automap name'
+        required: false
+      service_automap_value:
+        description: 'Service automap value'
+        required: false
+      c8_report_token:
+        description: 'Configure8 report token'
+        required: true
 
 jobs:
-  run_custom_script:
+  service_with_same_name_exists:
     runs-on: ubuntu-latest
+    permissions: write-all
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
+    - name: Print parameters
       run: |
-        python -m pip install --upgrade pip
-        # Add any additional dependencies here
+        echo "Token: ${{ github.event.inputs.c8_report_token }}"
+        echo "Service name: ${{ github.event.inputs.service_name }}"
 
-    - name: Run custom script
-      run: python .github/scripts/parse_payload.py
-      env:
-        CUSTOM_INPUT: ${{ github.event.inputs.custom_input }}
+    - name: Set start at
+      id: set_started_at
+      run: |
+        echo "::set-output name=startedAt::${{node -e 'console.log(new Date().toISOString())'}}"
+
+    - name: Set default status
+      id: status
+      run: |
+        echo "::set-output name=status::complete"
+
+    - name: Use NodeJS
+      uses: actions/setup-node@v2
+
+
+    - name: Is Service with the same name exists
+      id: service_exists
+      run: |
+        apiKey="${{ github.event.inputs.c8_report_token }}"
+        serviceName="${{ github.event.inputs.service_name }}"
+      
+        response=$(curl -X POST -H "api-key: $apiKey" \
+          -H "Accept: application/json" \
+          -d '{
+            "searchTerms": "'"$serviceName"'"
+          }' \
+        "https://b994-78-186-0-29.ngrok-free.app/public/v1/catalog/entities")
+
+        serviceId=$(echo "$response" | jq '.items[] | select(.name == "$serviceName") | .id')
+
+        if [[ -n "$serviceId" ]]; then
+          echo "::set-output name=service-id::$serviceId"
+        else
+          echo "::set-output name=service-id::null"
+        fi
