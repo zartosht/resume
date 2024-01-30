@@ -9,45 +9,48 @@ on:
       service_name:
         description: 'Service name'
         required: true
-      service_description:
-        description: 'Service description'
-        required: false
-      service_repository:
-        description: 'Service repository'
-        required: false
-      service_application:
-        description: 'Service application'
-        required: false
-      service_link_title:
-        description: 'Service link title'
-        required: false
-      service_link_type:
-        description: 'Service link type'
-        required: false
-      service_link_url:
-        description: 'Service link URL'
-        required: false
-      service_environments:
-        description: 'Service environments'
-        required: false
-      service_owners:
-        description: 'Service owners'
-        required: false
-      service_viewers:
-        description: 'Service viewers'
-        required: false
-      service_visibility:
-        description: 'Service visibility'
-        required: false
-      service_automap_name:
-        description: 'Service automap name'
-        required: false
-      service_automap_value:
-        description: 'Service automap value'
-        required: false
-      c8_report_token:
-        description: 'Configure8 report token'
-        required: true
+      service_data:
+        description: 'Service extra info'
+        default: ''
+      # service_description:
+      #   description: 'Service description'
+      #   required: false
+      # service_repository:
+      #   description: 'Service repository'
+      #   required: false
+      # service_application:
+      #   description: 'Service application'
+      #   required: false
+      # service_link_title:
+      #   description: 'Service link title'
+      #   required: false
+      # service_link_type:
+      #   description: 'Service link type'
+      #   required: false
+      # service_link_url:
+      #   description: 'Service link URL'
+      #   required: false
+      # service_environments:
+      #   description: 'Service environments'
+      #   required: false
+      # service_owners:
+      #   description: 'Service owners'
+      #   required: false
+      # service_viewers:
+      #   description: 'Service viewers'
+      #   required: false
+      # service_visibility:
+      #   description: 'Service visibility'
+      #   required: false
+      # service_automap_name:
+      #   description: 'Service automap name'
+      #   required: false
+      # service_automap_value:
+      #   description: 'Service automap value'
+      #   required: false
+      # c8_report_token:
+      #   description: 'Configure8 report token'
+      #   required: true
 
 jobs:
   service_with_same_name_exists:
