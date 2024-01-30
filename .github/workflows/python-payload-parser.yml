@@ -66,7 +66,7 @@ jobs:
     - name: Set start at
       id: set_started_at
       run: |
-        echo "::set-output name=startedAt::${{node -e 'console.log(new Date().toISOString())'}}"
+        echo "::set-output name=startedAt::$(node -e 'console.log(new Date().toISOString())')"
 
     - name: Set default status
       id: status
