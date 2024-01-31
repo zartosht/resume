@@ -6,94 +6,600 @@ on:
       public_api_token:
         description: 'Configure8 Public API Token'
         required: true
+      c8-report-token:
+        description: 'Configure8 Report Token'
+        required: true
+      reportUrl:
+        description: 'Configure8 Report URL'
+        required: true
       service_name:
         description: 'Service name'
         required: true
       service_data:
         description: 'Service extra info'
+        default: '{}'
+        required: false
+      plugins_data:
+        description: 'Plugins to attach'
         default: ''
-      # service_description:
-      #   description: 'Service description'
-      #   required: false
-      # service_repository:
-      #   description: 'Service repository'
-      #   required: false
-      # service_application:
-      #   description: 'Service application'
-      #   required: false
-      # service_link_title:
-      #   description: 'Service link title'
-      #   required: false
-      # service_link_type:
-      #   description: 'Service link type'
-      #   required: false
-      # service_link_url:
-      #   description: 'Service link URL'
-      #   required: false
-      # service_environments:
-      #   description: 'Service environments'
-      #   required: false
-      # service_owners:
-      #   description: 'Service owners'
-      #   required: false
-      # service_viewers:
-      #   description: 'Service viewers'
-      #   required: false
-      # service_visibility:
-      #   description: 'Service visibility'
-      #   required: false
-      # service_automap_name:
-      #   description: 'Service automap name'
-      #   required: false
-      # service_automap_value:
-      #   description: 'Service automap value'
-      #   required: false
-      # c8_report_token:
-      #   description: 'Configure8 report token'
-      #   required: true
+        required: false
 
 jobs:
-  service_with_same_name_exists:
+  upsert_service:
     runs-on: ubuntu-latest
     permissions: write-all
 
     steps:
-    - name: Print parameters
-      run: |
-        echo "Token: ${{ github.event.inputs.c8_report_token }}"
-        echo "Service name: ${{ github.event.inputs.service_name }}"
+      - name: Print parameters
+        run: |
+          echo "Public API Token: ${{ github.event.inputs.public_api_token }}"
+          echo "Service name: ${{ github.event.inputs.service_name }}"
 
-    - name: Set start at
-      id: set_started_at
-      run: |
-        echo "::set-output name=startedAt::$(node -e 'console.log(new Date().toISOString())')"
+      - name: Set start at
+        id: set_started_at
+        run: |
+          echo "::set-output name=startedAt::$(node -e 'console.log(new Date().toISOString())')"
 
-    - name: Set default status
-      id: status
-      run: |
-        echo "::set-output name=status::complete"
+      - name: Set default status
+        id: status
+        run: |
+          echo "::set-output name=status::complete"
 
-    - name: Use NodeJS
-      uses: actions/setup-node@v2
+      - name: Use NodeJS
+        uses: actions/setup-node@v2
 
+      - name: Get service data
+        id: get_service_data
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          serviceName="${{ github.event.inputs.service_name }}"
+          serviceData='${{ github.event.inputs.service_data }}'
+        
+          response=$(curl -X POST -H "api-key: $apiKey" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "searchTerms": "'"$serviceName"'"
+            }' \
+          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities")
 
-    - name: Is Service with the same name exists
-      id: service_exists
-      run: |
-        apiKey="${{ github.event.inputs.c8_report_token }}"
-        serviceName="${{ github.event.inputs.service_name }}"
+          # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+          if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+            echo "::set-output name=status::error"
+            echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+            echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+            exit 1
+          fi
+
+          serviceId=$(echo "$response" | jq '.items[] | select(.name == "'"$serviceName"'") | .id')
+          echo "::set-output name=service_id::$serviceId"
+          echo "::set-output name=service_name::$serviceName"
+
+          keys=("service_description" "service_repository" "service_application" "service_link_title" "service_link_url" "service_link_type" "service_visibility" "service_automap_name" "service_automap_value")
+          for key in "${keys[@]}"; do
+            value=$(echo "$serviceData" | jq -r ".$key")
+            echo "::set-output name=$key::$value"
+          done
+
+          keys=("service_environments" "service_owners" "service_viewers")
+          for key in "${keys[@]}"; do
+            value=$(echo "$serviceData" | jq -c ".$key")
+            echo "::set-output name=$key::$value"
+          done
+
+      - name: Get plgings data
+        if: github.event.inputs.plugins != ''
+        id: get_plugins_data
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          pluginData='${{ github.event.inputs.plugins_data }}'
+
+          keys=("service_scorecard_id" "pagerduty_oncall" "github" "datadog_slo" "jira")
+          for key in "${keys[@]}"; do
+            value=$(echo "$serviceData" | jq -r ".$key")
+            echo "::set-output name=$key::$value"
+          done
+
       
-        response=$(curl -X POST -H "api-key: $apiKey" \
-          -H "Accept: application/json" \
-          -d '{
-            "searchTerms": "'"$serviceName"'"
-          }' \
-        "https://b994-78-186-0-29.ngrok-free.app/public/v1/catalog/entities")
+      - name: Create Permissions Variable
+        id: create_permissions
+        run: |
+          serviceOwners='${{ steps.get_service_data.outputs.service_owners }}'
+          serviceViewers='${{ steps.get_service_data.outputs.service_viewers }}'
 
-        serviceId=$(echo "$response" | jq '.items[] | select(.name == "$serviceName") | .id')
+          # Start building the JSON object
+          permissionsJson='{}'
 
-        if [[ -n "$serviceId" ]]; then
-          echo "::set-output name=service-id::$serviceId"
-        else
-          echo "::set-output name=service-id::null"
-        fi
+          # Add permissions for serviceOwners
+          for ownerId in $(echo "$serviceOwners" | jq -r '.[]'); do
+            permissionsJson=$(echo "$permissionsJson" | jq --arg id "$ownerId" '. + {($id): ["read", "create", "modify", "delete", "execute"]}')
+          done
+
+          # Add permissions for serviceViewers
+          for viewerId in $(echo "$serviceViewers" | jq -r '.[]'); do
+            permissionsJson=$(echo "$permissionsJson" | jq --arg id "$viewerId" '. + {($id): ["read"]}')
+          done
+
+          echo "Permissions JSON: $permissionsJson"
+
+          # Set the output for use in other steps
+          echo "::set-output name=permissions::$(echo "$permissionsJson" | jq -c .)"
+
+      
+      - name: Update Service
+        if: steps.get_service_data.outputs.service_id != ''
+        run: |
+          echo "Trying to update service with id: ${{ steps.get_service_data.outputs.service_id }}"
+
+          apiKey="${{ github.event.inputs.public_api_token }}"
+        
+          response=$(curl -X PATCH -H "api-key: $apiKey" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "${{ steps.get_service_data.outputs.service_name }}",
+              "description": "${{ steps.get_service_data.outputs.service_description }}",
+              "generalAccess": ["${{ steps.get_service_data.outputs.service_visibility }}"],
+              "permissions": ${{ steps.create_permissions.outputs.permissions }},
+              "links": [
+                {
+                  "title": "${{ steps.get_service_data.outputs.service_link_title }}",
+                  "url": "${{ steps.get_service_data.outputs.service_link_url }}",
+                  "icon": "${{ steps.get_service_data.outputs.service_link_type }}"
+                }
+              ],
+              "metaTags": [
+                {
+                  "name": "${{ steps.get_service_data.outputs.service_automap_name }}",
+                  "type": "AutoMap",
+                  "value": "${{ steps.get_service_data.outputs.service_automap_value }}"
+                }
+              ]
+            }' \
+          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/${{ steps.get_service_data.outputs.service_id }}")
+
+          # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+          if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+            echo "::set-output name=status::error"
+            echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+            echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+            exit 1
+          fi
+          
+
+      - name: Create Service
+        id: create_service
+        if: steps.get_service_data.outputs.service_id == ''
+        run: |
+          echo "Trying to create service with name: ${{ steps.get_service_data.outputs.service_name }}"
+
+          apiKey="${{ github.event.inputs.public_api_token }}"
+        
+          response=$(curl -X POST -H "api-key: $apiKey" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "${{ steps.get_service_data.outputs.service_name }}",
+              "description": "${{ steps.get_service_data.outputs.service_description }}",
+              "generalAccess": ["${{ steps.get_service_data.outputs.service_visibility }}"],
+              "permissions": ${{ steps.create_permissions.outputs.permissions }},
+              "links": [
+                {
+                  "title": "${{ steps.get_service_data.outputs.service_link_title }}",
+                  "url": "${{ steps.get_service_data.outputs.service_link_url }}",
+                  "icon": "${{ steps.get_service_data.outputs.service_link_type }}"
+                }
+              ],
+              "metaTags": [
+                {
+                  "name": "${{ steps.get_service_data.outputs.service_automap_name }}",
+                  "type": "AutoMap",
+                  "value": "${{ steps.get_service_data.outputs.service_automap_value }}"
+                }
+              ]
+            }' \
+          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/")
+
+          # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+          if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+            echo "::set-output name=status::error"
+            echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+            echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+            exit 1
+          fi
+
+          serviceId=$(echo "$response" | jq '.id')
+          echo "::set-output name=service_id::$serviceId"
+
+      
+      - name: Get service ID
+        id: get_service_id
+        run: |
+          if [ -n "${{ steps.get_service_data.outputs.service_id }}" ]; then
+            serviceId="${{ steps.get_service_data.outputs.service_id }}"
+          elif [ -n "${{ steps.create_service.outputs.service_id }}" ]; then
+            serviceId="${{ steps.create_service.outputs.service_id }}"
+          else
+            serviceId=""
+          fi
+
+          echo "::set-output name=service_id::$serviceId"
+
+      
+      - name: Attach Repository
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_service_data.outputs.service_repository != ''
+        run: |
+          echo "Trying to attach repository with id ${{ steps.get_service_data.outputs.service_repository }} to service with id: ${{ steps.get_service_id.outputs.service_id }}"
+
+          apiKey="${{ github.event.inputs.public_api_token }}"
+        
+          response=$(curl -X POST -H "api-key: $apiKey" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -H "Step: Attach Repository" \
+            -d '{
+              "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
+              "targetEntityId": "${{ steps.get_service_data.outputs.service_repository }}"
+            }' \
+          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+
+          # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+          if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+            echo "::set-output name=status::error"
+            echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+            echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+            exit 1
+          fi
+
+      
+      - name: Attach Application
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_service_data.outputs.service_application != ''
+        run: |
+          echo "Trying to attach application with id ${{ steps.get_service_data.outputs.service_application }} to service with id ${{ steps.get_service_id.outputs.service_id }}"
+
+          apiKey="${{ github.event.inputs.public_api_token }}"
+        
+          response=$(curl -X POST -H "api-key: $apiKey" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -H "Step: Attach Application" \
+            -d '{
+              "serviceId": "${{ steps.get_service_id.outputs.service_id }}",
+              "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
+              "targetEntityId": "${{ steps.get_service_data.outputs.service_application }}"
+            }' \
+          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+
+          # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+          if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+            echo "::set-output name=status::error"
+            echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+            echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+            exit 1
+          fi
+
+      
+      - name: Attach Environment
+        if: steps.get_service_id.outputs.service_id != ''
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          serviceEnvironmentsJson='${{ steps.get_service_data.outputs.service_environments }}'
+
+          # Convert the JSON array to a Bash array
+          readarray -t environments < <(echo "$serviceEnvironmentsJson" | jq -r '.[]')
+
+          for envId in "${environments[@]}"
+          do
+            echo "Trying to attach environment with id $envId to service with id $serviceId"
+            response=$(curl -X POST -H "api-key: $apiKey" \
+              -H "Accept: application/json" \
+              -H "Content-Type: application/json" \
+              -H "Step: Attach Environment $envId" \
+              -d '{
+                "serviceId": "${{ steps.get_service_id.outputs.service_id }}",
+                "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
+                "targetEntityId": "'$envId'"
+              }' \
+            "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+
+            # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
+            if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
+              echo "::set-output name=status::error"
+              echo "::set-output name=error-message::$(echo "$response" | jq '.message')"
+              echo "::set-output name=error-status-code::$(echo "$response" | jq '.statusCode')"
+              exit 1
+            fi
+          done
+
+      
+      - name: Attach Scorecard (if exists)
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.service_scorecard_id != ''
+        id: attach_plugins_aws_security_hub
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="Scorecards"
+          providerType="OTHER"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          status="ACTIVE"
+          title="Scorecards"
+          uiPluginName="scorecards"
+          scorecardId=${{ steps.get_plugins_data.outputs.service_scorecard_id }}
+
+          response=$(curl -X GET -H "Content-Type: application/json" -H "api-key: $apiKey" \
+            "https://d624-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
+              
+          scorecardName=$(echo "$response" | jq -r '.name')
+          scorecardDescr=$(echo "$response" | jq -r '.description')
+          scorecardIcon=$(echo "$response" | jq -r '.icon')
+          scorecardStatus=$(echo "$response" | jq -r '.status')
+          scorecardServices=$(echo "$response" | jq -r '.services')
+          scorecardMetrics=$(echo "$response" | jq -r '.metrics')
+
+          # Append the newly generated UUID to the services array
+          scorecardServices=$(jq -n --argjson services "$scorecardServices" --arg newserviceid "$serviceId" '$services + [$newserviceid]')
+
+          scorecardServices=$(echo "$scorecardServices" | jq -c .)
+
+          echo "Trying to attach scorecard with id $scorecardId to service with id $serviceId"
+          echo "Scorecard services: $scorecardServices"
+          request_body=$(jq -n --arg desc "$scorecardDescr" --arg icon "$scorecardIcon" \
+            --argjson metrics "$scorecardMetrics" --arg name "$scorecardName" \
+            --argjson services "$scorecardServices" --arg status "$scorecardStatus" \
+            '{ "description": $desc, "icon": $icon, "metrics": $metrics, "name": $name, "services": $services, "status": $status }')
+
+          response=$(curl -X PUT -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+      
+      - name: Attach PagerDuty OnCall plugin
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.pagerduty_oncall != ''
+        id: attach_plugins_pagerduty_oncall
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="PagerDuty OnCall"
+          providerType="OTHER"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          credentialsId=${{ steps.get_plugins_data.outputs.pagerduty_oncall }}
+          status="ACTIVE"
+          title="PagerDuty OnCall"
+          uiPluginName="pagerduty-oncall"
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "credentialsId": "$credentialsId",
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+      
+      - name: Attach Github activity plugin
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.github != ''
+        id: attach_plugins_github_activity
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="GitHub"
+          providerType="REPOS"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          credentialsId=${{ steps.get_plugins_data.outputs.github }}
+          status="ACTIVE"
+          title="GitHub Activity"
+          uiPluginName="github_activity"
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "credentialsId": "$credentialsId",
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+      
+      - name: Attach Github actions plugin
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.github != ''
+        id: attach_plugins_github_actions
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="GitHub"
+          providerType="REPOS"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          credentialsId=${{ steps.get_plugins_data.outputs.github }}
+          status="ACTIVE"
+          title="GitHub Actions"
+          uiPluginName="github_actions"
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "credentialsId": "$credentialsId",
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+
+      - name: Attach Datadog SLO plugin
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.datadog_slo != ''
+        id: attach_plugins_datadog_slo
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="Datadog"
+          providerType="OTHER"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          credentialsId=${{ steps.get_plugins_data.outputs.datadog_slo }}
+          status="ACTIVE"
+          title="Datadog SLO"
+          uiPluginName="datadog_slo"
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [
+              {
+                "name": "slo_ids",
+                "value": ""
+              }
+            ],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "credentialsId": "$credentialsId",
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+
+      - name: Attach Jira plugin
+        if: steps.get_service_id.outputs.service_id != '' && steps.get_plugins_data.outputs.jira != ''
+        id: attach_plugins_jira
+        run: |
+          apiKey="${{ github.event.inputs.public_api_token }}"
+          providerName="Jira"
+          providerType="ISSUE_TRACKING"
+          serviceId=${{ steps.get_service_id.outputs.service_id }}
+          credentialsId=${{ steps.get_plugins_data.outputs.jira }}
+          status="ACTIVE"
+          title="Jira Activity"
+          uiPluginName="jira_activity"
+
+          # Create the request_body
+          request_body=$(cat <<EOF
+          {
+            "configuration": [
+              {
+                "name": "project_key",
+                "value": ""
+              }
+            ],
+            "layout": {
+              "h": 0,
+              "w": 0,
+              "x": 0,
+              "y": 0
+            },
+            "credentialsId": "$credentialsId",
+            "providerName": "$providerName",
+            "providerType": "$providerType",
+            "serviceId": "$serviceId",
+            "status": "$status",
+            "title": "$title",
+            "uiPluginName": "$uiPluginName"
+          }
+          EOF
+          )
+
+          response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
+           -d "$request_body" \
+           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+
+
+      - name: Set completedAt
+        id: set_completed_at
+        run: |
+          echo "::set-output name=completedAt::$(node -e 'console.log(new Date().toISOString())')"
+
+      - name: Send results over HTTP
+        run: |
+          token="${{ github.event.inputs.c8-report-token }}"
+          reportUrl="${{ github.event.inputs.reportUrl }}"
+          status="${{ steps.status.outputs.status }}"
+          startedAt="${{ steps.set_started_at.outputs.started_at }}"
+          completedAt="${{ steps.set_completedAt.outputs.completed_at }}"
+
+          # Report SSA result
+          if ! curl -X POST \
+            -H "c8-report-token: $token" \
+            -H "Content-Type: application/json" \
+            -d "{\"status\": \"$status\", \"startedAt\": \"$startedAt\", \"completedAt\": \"$completedAt\"}" \
+            "$reportUrl"; then
+            echo "Failed to send results over HTTP"
+            exit 1
+          fi
