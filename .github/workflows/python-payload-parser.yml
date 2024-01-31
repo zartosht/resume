@@ -87,8 +87,8 @@ jobs:
             echo "::set-output name=$key::$value"
           done
 
-      - name: Get plgings data
-        if: github.event.inputs.plugins != ''
+      - name: Get plugings data
+        if: github.event.inputs.plugins_data != ''
         id: get_plugins_data
         run: |
           apiKey="${{ github.event.inputs.public_api_token }}"
