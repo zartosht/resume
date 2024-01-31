@@ -61,7 +61,7 @@ jobs:
             -d '{
               "searchTerms": "'"$serviceName"'"
             }' \
-          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities")
+          "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/entities")
 
           # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
           if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -156,7 +156,7 @@ jobs:
                 }
               ]
             }' \
-          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/${{ steps.get_service_data.outputs.service_id }}")
+          "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/${{ steps.get_service_data.outputs.service_id }}")
 
           # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
           if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -198,7 +198,7 @@ jobs:
                 }
               ]
             }' \
-          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/")
+          "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/entities/service/")
 
           # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
           if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -241,7 +241,7 @@ jobs:
               "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
               "targetEntityId": "${{ steps.get_service_data.outputs.service_repository }}"
             }' \
-          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+          "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
 
           # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
           if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -268,7 +268,7 @@ jobs:
               "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
               "targetEntityId": "${{ steps.get_service_data.outputs.service_application }}"
             }' \
-          "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+          "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
 
           # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
           if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -300,7 +300,7 @@ jobs:
                 "sourceEntityId": "${{ steps.get_service_id.outputs.service_id }}",
                 "targetEntityId": "'$envId'"
               }' \
-            "https://d624-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
+            "https://92cf-78-186-0-29.ngrok-free.app/public/v1/catalog/relations")
 
             # check if response has error statusCode in this schema: {"message":"Unauthorized","statusCode":401}
             if [[ $(echo "$response" | jq '.statusCode') != "null" ]]; then
@@ -326,7 +326,7 @@ jobs:
           scorecardId=${{ steps.get_plugins_data.outputs.service_scorecard_id }}
 
           response=$(curl -X GET -H "Content-Type: application/json" -H "api-key: $apiKey" \
-            "https://d624-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
+            "https://92cf-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
               
           scorecardName=$(echo "$response" | jq -r '.name')
           scorecardDescr=$(echo "$response" | jq -r '.description')
@@ -349,7 +349,7 @@ jobs:
 
           response=$(curl -X PUT -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/scorecards/$scorecardId")
 
           # Create the request_body
           request_body=$(cat <<EOF
@@ -373,7 +373,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
       
       - name: Attach PagerDuty OnCall plugin
@@ -412,7 +412,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
       
       - name: Attach Github activity plugin
@@ -451,7 +451,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
       
       - name: Attach Github actions plugin
@@ -490,7 +490,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
 
       - name: Attach Datadog SLO plugin
@@ -534,7 +534,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
 
       - name: Attach Jira plugin
@@ -578,7 +578,7 @@ jobs:
 
           response=$(curl -X POST -H "Content-Type: application/json" -H "api-key: $apiKey" \
            -d "$request_body" \
-           "https://d624-78-186-0-29.ngrok-free.app/public/v1/module-settings")
+           "https://92cf-78-186-0-29.ngrok-free.app/public/v1/module-settings")
 
 
       - name: Set completedAt
@@ -591,8 +591,8 @@ jobs:
           token="${{ github.event.inputs.c8-report-token }}"
           reportUrl="${{ github.event.inputs.reportUrl }}"
           status="${{ steps.status.outputs.status }}"
-          startedAt="${{ steps.set_started_at.outputs.started_at }}"
-          completedAt="${{ steps.set_completedAt.outputs.completed_at }}"
+          startedAt="${{ steps.set_started_at.outputs.startedAt }}"
+          completedAt="${{ steps.set_completed_at.outputs.completedAt }}"
 
           # Report SSA result
           if ! curl -X POST \
