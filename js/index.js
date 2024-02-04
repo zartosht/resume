@@ -48,6 +48,9 @@ function fillTemplate() {
   document
     .getElementById("stackoverflow")
     .setAttribute("href", profile.social.stackoverflow);
+  document
+    .getElementById("python")
+    .setAttribute("href", profile.social.python);
   if (profile.social.blog) {
     document.getElementById("blog").setAttribute("href", profile.social.blog);
   } else {
