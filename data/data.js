@@ -55,7 +55,7 @@ const profile = {
     twitter: 'https://twitter.com/zartoshtsepid',
     github: 'https://github.com/zartosht',
     stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman',
-    Python: 'https://python.zartosht.dev',
+    python: 'https://python.zartosht.dev',
   },
   experience: [
     {
