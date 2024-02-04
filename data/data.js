@@ -25,7 +25,6 @@ const profile = {
     "Elasticsearch",
     "ExpressJs",
     "Git",
-    "GIT",
     "Grafana",
     "GraphQL API",
     "gRPC",
@@ -55,7 +54,8 @@ const profile = {
     linkedin: 'https://www.linkedin.com/in/zartoshtsepideman',
     twitter: 'https://twitter.com/zartoshtsepid',
     github: 'https://github.com/zartosht',
-    stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman'
+    stackoverflow: 'https://stackoverflow.com/users/3632888/zartosht-sepideman',
+    Python: 'https://python.zartosht.dev',
   },
   experience: [
     {
@@ -117,7 +117,7 @@ const profile = {
       description:
         `
         Fidibo is a corporation in DiGITal books field and my job there was maintaining their website and create Front-end side of their desktop application:<br/>
-        - Build and develop Fidibo\'s Desktop application <br/>
+        - Build and develop Fidibo's Desktop application <br/>
         - Website maintenance with Phalcon <br/>
         `,
       from: 'Nov 2016',
